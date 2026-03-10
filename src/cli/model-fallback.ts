@@ -32,7 +32,8 @@ export function generateModelConfig(config: InstallConfig): GeneratedOmoConfig {
     avail.opencodeZen ||
     avail.copilot ||
     avail.zai ||
-    avail.kimiForCoding
+    avail.kimiForCoding ||
+    (avail.ollama ?? false)
 
   if (!hasAnyProvider) {
     return {
