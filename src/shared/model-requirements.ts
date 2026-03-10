@@ -35,6 +35,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
       { providers: ["openai", "github-copilot", "opencode"], model: "gpt-5.4", variant: "medium" },
       { providers: ["zai-coding-plan", "opencode"], model: "glm-5" },
       { providers: ["opencode"], model: "big-pickle" },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
     requiresAnyModel: true,
   },
@@ -46,6 +47,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         variant: "medium",
       },
       { providers: ["github-copilot"], model: "gpt-5.4", variant: "medium" },
+      { providers: ["ollama"], model: "qwen2.5-coder:32b" },
     ],
     requiresProvider: ["openai", "github-copilot", "venice", "opencode"],
   },
@@ -66,6 +68,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "claude-opus-4-6",
         variant: "max",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   librarian: {
@@ -76,6 +79,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
       },
       { providers: ["opencode"], model: "minimax-m2.5-free" },
       { providers: ["opencode"], model: "big-pickle" },
+      { providers: ["ollama"], model: "qwen2.5-coder:32b" },
     ],
   },
   explore: {
@@ -84,6 +88,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
       { providers: ["opencode"], model: "minimax-m2.5-free" },
       { providers: ["anthropic", "opencode"], model: "claude-haiku-4-5" },
       { providers: ["opencode"], model: "gpt-5-nano" },
+      { providers: ["ollama"], model: "llama3.2:8b" },
     ],
   },
   "multimodal-looker": {
@@ -103,6 +108,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         providers: ["openai", "github-copilot", "opencode"],
         model: "gpt-5-nano",
       },
+      { providers: ["ollama"], model: "llama3.2-vision:11b" },
     ],
   },
   prometheus: {
@@ -121,6 +127,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         providers: ["google", "github-copilot", "opencode"],
         model: "gemini-3.1-pro",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   metis: {
@@ -140,6 +147,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "gemini-3.1-pro",
         variant: "high",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   momus: {
@@ -159,6 +167,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "gemini-3.1-pro",
         variant: "high",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   atlas: {
@@ -168,6 +177,7 @@ export const AGENT_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "claude-sonnet-4-6",
       },
       { providers: ["openai", "github-copilot", "opencode"], model: "gpt-5.4", variant: "medium" },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
 };
@@ -186,6 +196,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "claude-opus-4-6",
         variant: "max",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   ultrabrain: {
@@ -205,6 +216,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "claude-opus-4-6",
         variant: "max",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   deep: {
@@ -224,6 +236,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "gemini-3.1-pro",
         variant: "high",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
     requiresModel: "gpt-5.3-codex",
   },
@@ -240,6 +253,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         variant: "max",
       },
       { providers: ["openai", "github-copilot", "opencode"], model: "gpt-5.4" },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
     requiresModel: "gemini-3.1-pro",
   },
@@ -254,6 +268,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         model: "gemini-3-flash",
       },
       { providers: ["opencode"], model: "gpt-5-nano" },
+      { providers: ["ollama"], model: "llama3.2:8b" },
     ],
   },
   "unspecified-low": {
@@ -271,6 +286,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         providers: ["google", "github-copilot", "opencode"],
         model: "gemini-3-flash",
       },
+      { providers: ["ollama"], model: "qwen2.5-coder:32b" },
     ],
   },
   "unspecified-high": {
@@ -298,6 +314,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         ],
         model: "kimi-k2.5",
       },
+      { providers: ["ollama"], model: "llama3.1:70b" },
     ],
   },
   writing: {
@@ -310,6 +327,7 @@ export const CATEGORY_MODEL_REQUIREMENTS: Record<string, ModelRequirement> = {
         providers: ["anthropic", "github-copilot", "opencode"],
         model: "claude-sonnet-4-6",
       },
+      { providers: ["ollama"], model: "qwen2.5-coder:32b" },
     ],
   },
 };
