@@ -1,11 +1,21 @@
 import * as p from "@clack/prompts"
 import type { Option } from "@clack/prompts"
 import type {
+  BooleanArg,
   ClaudeSubscription,
   DetectedConfig,
   InstallConfig,
 } from "./types"
 import { detectedToInitialValues } from "./install-validators"
+
+async function detectOllama(): Promise<boolean> {
+  try {
+    const res = await fetch("http://localhost:11434/api/tags", { signal: AbortSignal.timeout(3000) })
+    return res.ok
+  } catch {
+    return false
+  }
+}
 
 async function selectOrCancel<TValue extends Readonly<string | boolean | number>>(params: {
   message: string
@@ -100,6 +110,17 @@ export async function promptInstallConfig(detected: DetectedConfig): Promise<Ins
   })
   if (!kimiForCoding) return null
 
+  const ollamaDetected = await detectOllama()
+  const ollama = await selectOrCancel({
+    message: "Do you have Ollama running locally?",
+    options: [
+      { value: "no", label: "No", hint: "Local model offloading disabled" },
+      { value: "yes", label: "Yes", hint: "Local models as cost-saving fallback (llama3.2, qwen2.5-coder, etc.)" },
+    ],
+    initialValue: ollamaDetected ? "yes" : "no" as BooleanArg,
+  })
+  if (!ollama) return null
+
   return {
     hasClaude: claude !== "no",
     isMax20: claude === "max20",
@@ -109,5 +130,6 @@ export async function promptInstallConfig(detected: DetectedConfig): Promise<Ins
     hasOpencodeZen: opencodeZen === "yes",
     hasZaiCodingPlan: zaiCodingPlan === "yes",
     hasKimiForCoding: kimiForCoding === "yes",
+    hasOllama: ollama === "yes",
   }
 }

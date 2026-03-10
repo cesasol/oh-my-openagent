@@ -38,6 +38,7 @@ export function formatConfigSummary(config: InstallConfig): string {
   lines.push(formatProvider("OpenCode Zen", config.hasOpencodeZen, "opencode/ models"))
   lines.push(formatProvider("Z.ai Coding Plan", config.hasZaiCodingPlan, "Librarian/Multimodal"))
   lines.push(formatProvider("Kimi For Coding", config.hasKimiForCoding, "Sisyphus/Prometheus fallback"))
+  lines.push(formatProvider("Ollama (local)", config.hasOllama ?? false, "local model fallback"))
 
   lines.push("")
   lines.push(color.dim("─".repeat(40)))
@@ -160,6 +161,7 @@ export function argsToConfig(args: InstallArgs): InstallConfig {
     hasOpencodeZen: args.opencodeZen === "yes",
     hasZaiCodingPlan: args.zaiCodingPlan === "yes",
     hasKimiForCoding: args.kimiForCoding === "yes",
+    hasOllama: args.ollama === "yes",
   }
 }
 
@@ -171,6 +173,7 @@ export function detectedToInitialValues(detected: DetectedConfig): {
   opencodeZen: BooleanArg
   zaiCodingPlan: BooleanArg
   kimiForCoding: BooleanArg
+  ollama: BooleanArg
 } {
   let claude: ClaudeSubscription = "no"
   if (detected.hasClaude) {
@@ -185,5 +188,6 @@ export function detectedToInitialValues(detected: DetectedConfig): {
     opencodeZen: detected.hasOpencodeZen ? "yes" : "no",
     zaiCodingPlan: detected.hasZaiCodingPlan ? "yes" : "no",
     kimiForCoding: detected.hasKimiForCoding ? "yes" : "no",
+    ollama: detected.hasOllama ? "yes" : "no",
   }
 }
