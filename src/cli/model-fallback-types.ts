@@ -8,6 +8,7 @@ export interface ProviderAvailability {
 	copilot: boolean
 	zai: boolean
 	kimiForCoding: boolean
+	ollama?: boolean
 	isMaxPlan: boolean
 }
 

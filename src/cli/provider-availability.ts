@@ -12,6 +12,7 @@ export function toProviderAvailability(config: InstallConfig): ProviderAvailabil
 		copilot: config.hasCopilot,
 		zai: config.hasZaiCodingPlan,
 		kimiForCoding: config.hasKimiForCoding,
+		ollama: config.hasOllama ?? false,
 		isMaxPlan: config.isMax20,
 	}
 }
@@ -25,6 +26,7 @@ export function isProviderAvailable(provider: string, availability: ProviderAvai
 		opencode: availability.opencodeZen,
 		"zai-coding-plan": availability.zai,
 		"kimi-for-coding": availability.kimiForCoding,
+		ollama: availability.ollama ?? false,
 	}
 	return mapping[provider] ?? false
 }
